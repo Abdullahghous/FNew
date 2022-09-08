@@ -165,20 +165,6 @@ export class AppComponent {
     const newImgIndexEven = id - 1;
     const newImgIndexOdd = newImgIndexEven - 1;
 
-    if(newImgIndexEven === 2) {
-      console.log('ddddqwqwqwq');
-      this.index = '0 - 1 / 30';
-      this.prebtn1 = false;
-      this.prebtn2 = true;
-      this.firstDiv = 1;
-      this.showDoubleImg = 1;
-      this.showIndexFirst = 1;
-    }
-    else {
-      this.prebtn1 = true;
-      this.prebtn2 = false;
-    }
-
     if(this.getScreenWidth < 640) {
       // this.showInBigScreen = false;
       // this.showInSmallScreen = true;
@@ -204,6 +190,20 @@ export class AppComponent {
         this.oddImgs.push(odd)
       }
     })
+
+    if(newImgIndexEven === 2) {
+      console.log('ddddqwqwqwq');
+      this.index = '0 - 1 / 30';
+      this.prebtn1 = false;
+      this.prebtn2 = true;
+      this.firstDiv = 1;
+      this.showDoubleImg = 1;
+      this.showIndexFirst = 1;
+    }
+    else {
+      this.prebtn1 = true;
+      this.prebtn2 = false;
+    }
 
   }
 
