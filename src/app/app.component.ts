@@ -28,11 +28,11 @@ export class AppComponent {
   ngOnInit() {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
-
-    console.log(this.getScreenWidth, 'getScreenWidth');
+    
     if(this.getScreenWidth < 640) {
-      this.showInBigScreen = false;
-      this.showInSmallScreen = true;
+      console.log(this.getScreenWidth, 'inside if');
+      // this.showInBigScreen = false;
+      // this.showInSmallScreen = true;
       this.index = '1 / 30';
       // this.hideDivSmallerScreen = true;
       // this.showDivInSmallerScreen = false
@@ -123,15 +123,22 @@ export class AppComponent {
       this.nextbtn2 = true;
     }
 
-    console.log(newImgIndexEven, newImgIndexOdd, 'even', 'odd');
-
     // if(this.showInSmallScreen){
     // }
     // else {
     //   this.index = `${newImgIndexEven} - ${newImgIndexEven === 30 ? 0 : newImgIndexOdd}`;
     // }
 
-    this.index = `${newImgIndexEven} - ${newImgIndexEven === 30 ? 0 : newImgIndexOdd}`;
+    if(this.getScreenWidth < 640) {
+      // this.showInBigScreen = false;
+      // this.showInSmallScreen = true;
+      this.index = `${newImgIndexEven}`;
+      // this.hideDivSmallerScreen = true;
+      // this.showDivInSmallerScreen = false
+    }
+    else {
+      this.index = `${newImgIndexEven} - ${newImgIndexEven === 30 ? 0 : newImgIndexOdd}`;
+    }
 
     this.allImages.forEach((even) => {
       if(even.index == newImgIndexEven) {
@@ -158,8 +165,6 @@ export class AppComponent {
     const newImgIndexEven = id - 1;
     const newImgIndexOdd = newImgIndexEven - 1;
 
-    this.index = `${newImgIndexEven} - ${newImgIndexEven === 30 ? 0 : newImgIndexOdd}`;
-
     if(newImgIndexEven === 2) {
       console.log('ddddqwqwqwq');
       this.index = '0 - 1 / 30';
@@ -174,6 +179,19 @@ export class AppComponent {
       this.prebtn2 = false;
     }
 
+    if(this.getScreenWidth < 640) {
+      // this.showInBigScreen = false;
+      // this.showInSmallScreen = true;
+      this.index = `${newImgIndexOdd}`;
+      // this.hideDivSmallerScreen = true;
+      // this.showDivInSmallerScreen = false
+    }
+    else {
+      this.index = `${newImgIndexEven} - ${newImgIndexEven === 30 ? 0 : newImgIndexOdd}`;
+    }
+
+
+
 
     this.allImages.forEach((even) => {
       if(even.index == newImgIndexEven) {
@@ -187,32 +205,6 @@ export class AppComponent {
       }
     })
 
-    // if(newImgIndexEven == 2 && newImgIndexOdd == 1) {
-    //   this.allImages.forEach((even) => {
-    //     if(even.index == 2) {
-    //       this.evenImgs.push(even)
-    //     }
-    //   })
-  
-    //   this.allImages.forEach((odd) => {
-    //     if(odd.index == 1) {
-    //       this.oddImgs.push(odd)
-    //     }
-    //   })
-    // }else if(newImgIndexEven !== 2 && newImgIndexOdd !== 1) {
-    //   console.log('index 1 - -0');
-    //   this.allImages.forEach((even) => {
-    //     if(even.index == newImgIndexEven) {
-    //       this.evenImgs.push(even)
-    //     }
-    //   })
-  
-    //   this.allImages.forEach((odd) => {
-    //     if(odd.index == newImgIndexOdd) {
-    //       this.oddImgs.push(odd)
-    //     }
-    //   })
-    // }
   }
 
   public allImages = [
