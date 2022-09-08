@@ -23,7 +23,8 @@
       </div> -->
     </div>
     <div class="footer">
-      <img (click)="pre()" class="menu-icon" src="../assets/arrow.png"/>
+      <img *ngIf="prebtn1" (click)="pre()" class="menu-icon" src="../assets/arrow.png"/>
+      <img *ngIf="prebtn2" class="menu-icon" src="../assets/arrow.png"/>
       <p *ngIf="showIndexFirst === 1" >{{ index }}</p>
       <p *ngIf="showDoubleImg === 2" >{{ index }} / 30</p>
       <!-- <img (click)="open()" class="menuIcon" src="../assets//menu.png"> -->
